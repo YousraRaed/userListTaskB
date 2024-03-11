@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>{{ "translation:userList.addUser" | i18nextEager }}</h2>
+
+<form [formGroup]="addUserForm" #myForm="ngForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="{{ 'translation:userList.name' | i18nextEager }}"
+      name="name"
+      formControlName="name"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="{{ 'translation:userList.email' | i18nextEager }}"
+      name="email"
+      formControlName="email"
+      required
+      email
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="{{ 'translation:userList.phone' | i18nextEager }}"
+      name="phone"
+      formControlName="phone"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>{{ "translation:userList.status" | i18nextEager }}</mat-label>
+    <mat-select formControlName="status" required>
+      <mat-option value="active">{{
+        "translation:userList.active" | i18nextEager
+      }}</mat-option>
+      <mat-option value="soft_deleted">{{
+        "translation:userList.softDeleted" | i18nextEager
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="button-row">
+    <button mat-button type="submit" [disabled]="!addUserForm.valid">
+      {{ "translation:userList.add" | i18nextEager }}
+    </button>
+    <button mat-button type="button" (click)="closeDialog()">
+      {{ "translation:userList.cancel" | i18nextEager }}
+    </button>
+  </div>
+</form>

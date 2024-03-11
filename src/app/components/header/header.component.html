@@ -1,0 +1,8 @@
+<div class="header">
+  <ul *ngIf="supportedLanguagesCount > 1" class="languageToggle">
+    <li *ngFor="let lang of supportedLanguages">
+      <a (click)="changeLanguage(lang)">{{ lang | uppercase }}</a>
+    </li>
+  </ul>
+  <ng-content></ng-content>
+</div>

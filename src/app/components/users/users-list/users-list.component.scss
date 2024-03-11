@@ -1,0 +1,66 @@
+mat-row:nth-child(2n) {
+  background-color: #f2f2f2;
+}
+mat-header-cell {
+  background-color: #393939 !important;
+  color: white;
+}
+mat-header-cell:not(:first-child) {
+  padding-left: 0;
+}
+.table-container {
+  background-color: white;
+  padding: 15px;
+  padding-top: 5px;
+  border-radius: 5px;
+  margin-left: 45px;
+  margin-right: 45px;
+}
+.title-holder {
+  border-bottom: 2px solid #f2f2f2;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.list-title {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  margin: 5px;
+  padding-top: 20px;
+}
+mat-header-cell:first-child {
+  border-top-left-radius: 5px;
+}
+mat-header-cell:last-child {
+  border-top-right-radius: 5px;
+}
+
+mat-input-element {
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+mat-input-element:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.active {
+  color: rgb(210, 173, 72);
+}
+.soft_deleted {
+  color: rgb(179, 19, 46);
+}
+::ng-deep .mat-input-underline {
+  display: none;
+}
+.actions {
+  display: flex;
+}
+::ng-deep .mat-mdc-paginator-page-size-label {
+  display: none;
+}
