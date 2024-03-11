@@ -1,4 +1,8 @@
 <div class="container">
   <app-header class="header"> </app-header>
+  <app-notification
+    [message]="popUpMessage"
+    *ngIf="popUpMessage"
+  ></app-notification>
   <router-outlet></router-outlet>
 </div>

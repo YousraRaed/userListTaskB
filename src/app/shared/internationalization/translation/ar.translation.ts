@@ -22,4 +22,7 @@ export const arTranslation = {
     typeYourUsername: 'اكتب اسم المستخدم ',
     typeYourPassword: 'اكتب كلمة المرور',
   },
+  notification: {
+    close: 'اغلاق',
+  },
 };

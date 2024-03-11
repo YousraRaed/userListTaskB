@@ -1,11 +1,11 @@
 import { Inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Store } from '@ngrx/store';
 import { map, switchMap } from 'rxjs';
 import {
   UserClientService,
   USER_CLIENT_SERVICE,
 } from '../../outbound/user.client.service';
+import { NotificationService } from '../../services/notification.service';
 import { UserActions } from '../actions/action-types';
 import {
   createUserLoaded,
@@ -13,7 +13,6 @@ import {
   getUserLoaded,
   updateUserLoaded,
 } from '../actions/users.actions';
-import { AppState } from '../reducers/app.reducer';
 
 @Injectable()
 export class UsersEffects {
@@ -24,6 +23,7 @@ export class UsersEffects {
         return this.userService.getUsers();
       }),
       map((users) => {
+        this.notificationService.showPopUp('Success get users.');
         return getUserLoaded(users);
       })
     )
@@ -35,7 +35,11 @@ export class UsersEffects {
       switchMap((action) => {
         return this.userService.createUser(action.user);
       }),
-      map((user) => createUserLoaded(user))
+      map((user) => {
+        this.notificationService.showPopUp('Success add user.');
+
+        return createUserLoaded(user);
+      })
     )
   );
 
@@ -45,7 +49,11 @@ export class UsersEffects {
       switchMap((action) => {
         return this.userService.updateUser(action.user);
       }),
-      map((user) => updateUserLoaded(user))
+      map((user) => {
+        this.notificationService.showPopUp('Success update user.');
+
+        return updateUserLoaded(user);
+      })
     )
   );
 
@@ -55,7 +63,11 @@ export class UsersEffects {
       switchMap((action) => {
         return this.userService.deleteUser(action.userId);
       }),
-      map((userId) => deleteUserLoaded(userId))
+      map((userId) => {
+        this.notificationService.showPopUp('Success delete user.');
+
+        return deleteUserLoaded(userId);
+      })
     )
   );
 
@@ -63,6 +75,6 @@ export class UsersEffects {
     private actions$: Actions,
     @Inject(USER_CLIENT_SERVICE)
     private userService: UserClientService,
-    private store: Store<AppState>
+    private notificationService: NotificationService
   ) {}
 }

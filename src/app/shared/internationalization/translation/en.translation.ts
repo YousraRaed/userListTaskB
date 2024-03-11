@@ -22,4 +22,7 @@ export const enTranslation = {
     typeYourUsername: 'Type your username',
     typeYourPassword: 'Type your password',
   },
+  notification: {
+    close: 'Close',
+  },
 };

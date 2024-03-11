@@ -5,6 +5,7 @@ import {
   AuthClientService,
   AUTH_SERVICE,
 } from '../../outbound/auth.client.service';
+import { NotificationService } from '../../services/notification.service';
 
 import { AuthActions } from '../actions/action-types';
 import { signedIn, signedOut } from '../actions/auth.actions';
@@ -20,6 +21,7 @@ export class AuthEffects {
         return this.authService.signIn(username, password);
       }),
       map((user) => {
+        this.notificationService.showPopUp('Success login.');
         return signedIn(user);
       })
     )
@@ -31,6 +33,7 @@ export class AuthEffects {
         return this.authService.signOut();
       }),
       map((isLogout) => {
+        this.notificationService.showPopUp('Success logout.');
         return signedOut(isLogout);
       })
     )
@@ -38,6 +41,7 @@ export class AuthEffects {
   constructor(
     private actions$: Actions,
     @Inject(AUTH_SERVICE)
-    private authService: AuthClientService
+    private authService: AuthClientService,
+    private notificationService: NotificationService
   ) {}
 }

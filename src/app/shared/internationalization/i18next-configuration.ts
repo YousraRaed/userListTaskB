@@ -7,18 +7,14 @@ import {
 } from 'angular-i18next';
 
 import i18nextLanguageDetector from 'i18next-browser-languagedetector';
-import { enError } from './error/en.error';
 import { enTranslation } from './translation/en.translation';
-import { arError } from './error/ar.error';
 import { arTranslation } from './translation/ar.translation';
 
 const I18NEXT_RESOURCES = {
   en: {
-    error: enError,
     translation: enTranslation,
   },
   ar: {
-    error: arError,
     translation: arTranslation,
   },
 };
@@ -30,7 +26,7 @@ export function appInit(i18next: ITranslationService) {
       fallbackLng: 'en',
       debug: true,
       returnEmptyString: true,
-      ns: ['translation', 'error'],
+      ns: ['translation'],
       resources: I18NEXT_RESOURCES,
       cleanCode: true,
       interpolation: {

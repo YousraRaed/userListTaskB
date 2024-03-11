@@ -1,0 +1,9 @@
+<div *ngIf="show" class="pop-up">
+  <span>{{ message }}</span>
+  <div class="button-row">
+    <div class="color"></div>
+    <button (click)="close()">
+      {{ "translation:notification.close" | i18nextEager }}
+    </button>
+  </div>
+</div>
