@@ -1,18 +1,14 @@
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
-// import { environment } from '../../../../environments/environment';
+import { authFeatureKey, authReducer, AuthState } from './auth.reducer';
 
 import { userFeatureKey, UserState, userReducer } from './user.reducer';
 
 export interface AppState {
-  // [pendingFeatureKey]: PendingState;
+  [authFeatureKey]: AuthState;
   [userFeatureKey]: UserState;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
-  // [pendingFeatureKey]: pendingReducer,
+  [authFeatureKey]: authReducer,
   [userFeatureKey]: userReducer,
 };
-
-// export const metaReducers: MetaReducer<AppState>[] = !environment.production
-//   ? []
-//   : [];

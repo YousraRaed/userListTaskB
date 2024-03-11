@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
+import { LoginComponent } from './pages/login/login.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'users', pathMatch: 'full' },
-  // { path: 'login', component: LoginComponent },
-  { path: 'users', component: MainPageComponent },
-  // { path: 'user/:id', component: UserDetailsComponent, canActivate: [AuthGuard] },
-  // Add more routes as needed
+  { path: 'login', component: LoginComponent },
+  { path: 'users', component: MainPageComponent, canActivate: [AuthGuard] },
+
   {
     path: '**',
     redirectTo: 'users',

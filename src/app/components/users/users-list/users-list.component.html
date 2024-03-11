@@ -1,25 +1,4 @@
 <div class="table-container">
-  <div class="title-holder">
-    <div>
-      <h1 class="list-title">
-        {{ "translation:userList.userList" | i18nextEager }}
-      </h1>
-    </div>
-    <div class="actions">
-      <mat-form-field>
-        <input
-          matInput
-          #filterInput
-          (keyup)="applyFilter(filterInput.value)"
-          placeholder="{{ 'translation:userList.filter' | i18nextEager }}"
-        />
-      </mat-form-field>
-      <button mat-raised-button color="primary" (click)="openAddUserDialog()">
-        {{ "translation:userList.addUser" | i18nextEager }}
-      </button>
-    </div>
-  </div>
-
   <mat-table [dataSource]="dataSource" matSort>
     <!-- Name Column -->
     <ng-container matColumnDef="name">
@@ -54,7 +33,7 @@
         user.status | titlecase
       }}</mat-cell>
     </ng-container>
-    <ng-container matColumnDef="actions">
+    <ng-container *ngIf="isRoleAdmin$ | async" matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef>{{
         "translation:userList.actions" | i18nextEager
       }}</mat-header-cell>
@@ -67,8 +46,21 @@
         </button>
       </mat-cell>
     </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    <mat-header-row
+      *matHeaderRowDef="
+        !(isRoleAdmin$ | async)
+          ? displayedColumnsForUser
+          : displayedColumnsForAdmin
+      "
+    ></mat-header-row>
+    <mat-row
+      *matRowDef="
+        let row;
+        columns: !(isRoleAdmin$ | async)
+          ? displayedColumnsForUser
+          : displayedColumnsForAdmin
+      "
+    ></mat-row>
   </mat-table>
 
   <mat-paginator

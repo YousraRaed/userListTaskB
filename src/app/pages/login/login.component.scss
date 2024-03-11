@@ -1,0 +1,54 @@
+.container-login {
+  background-image: url(../../../assets/bg-01.jpg);
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  .login-wrapper {
+    width: 500px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px;
+    ::ng-deep .mat-mdc-text-field-wrapper {
+      background-color: transparent;
+    }
+    h1 {
+      display: block;
+      font-size: 39px;
+      color: #333;
+      line-height: 1.2;
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 23px;
+    }
+    input {
+      padding: 14px;
+      border: none;
+      border-bottom: 1px solid black;
+      width: 160px;
+    }
+    ::ng-deep .mat-mdc-form-field-infix {
+      padding: 0;
+    }
+    mat-form-field {
+      padding-bottom: 10px;
+    }
+    .button-row {
+      .disable {
+        opacity: 50%;
+      }
+    }
+  }
+  .wrapper {
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

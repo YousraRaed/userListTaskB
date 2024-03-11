@@ -1,12 +1,11 @@
 import { Inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { map, switchMap, withLatestFrom } from 'rxjs';
+import { map, switchMap } from 'rxjs';
 import {
   UserClientService,
   USER_CLIENT_SERVICE,
 } from '../../outbound/user.client.service';
-import { UserService } from '../../services/user.service';
 import { UserActions } from '../actions/action-types';
 import {
   createUserLoaded,

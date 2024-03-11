@@ -1,0 +1,22 @@
+.title-container {
+  display: flex;
+  justify-content: center;
+}
+.button-row {
+  margin-bottom: 20px;
+  width: 256px;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+}
+::ng-deep .mat-mdc-text-field-wrapper {
+  background-color: transparent !important;
+}
+h2 {
+  padding-top: 20px;
+}
+mat-form-field {
+  width: 50%;
+  padding-left: 40px;
+}

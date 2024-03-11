@@ -1,3 +1,38 @@
 <div>
-  <app-users-list></app-users-list>
+  <div class="title-holder">
+    <div>
+      <h1 class="list-title">
+        {{ "translation:userList.userList" | i18nextEager }}
+      </h1>
+    </div>
+    <div class="actions">
+      <div class="padd">
+        <div class="button-row">
+          <div class="color"></div>
+          <button (click)="openAddUserDialog()">
+            {{ "translation:userList.addUser" | i18nextEager }}
+          </button>
+        </div>
+      </div>
+
+      <div class="filter">
+        <mat-form-field>
+          <input
+            matInput
+            #filterInput
+            (keyup)="applyFilter(filterInput.value)"
+            placeholder="{{ 'translation:userList.filter' | i18nextEager }}"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="button-row">
+        <div class="color"></div>
+        <button (click)="onClickLogout()">
+          {{ "translation:userList.logout" | i18nextEager }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <app-users-list [filterValue]="filterValue"></app-users-list>
 </div>

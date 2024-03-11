@@ -12,5 +12,14 @@ export const arTranslation = {
     status: 'حالة',
     actions: 'أجراءات',
     filter: 'منقي',
+    edit: 'تصحيح',
+    logout: 'تسجيل خروج',
+  },
+  login: {
+    username: 'اسم المستخدم',
+    password: 'كلمة المرور',
+    login: 'تسجيل الدخول',
+    typeYourUsername: 'اكتب اسم المستخدم ',
+    typeYourPassword: 'اكتب كلمة المرور',
   },
 };

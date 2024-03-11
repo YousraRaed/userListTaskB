@@ -2,14 +2,13 @@ mat-row:nth-child(2n) {
   background-color: #f2f2f2;
 }
 mat-header-cell {
-  background-color: #393939 !important;
+  background-color: #a64bf4 !important;
   color: white;
 }
 mat-header-cell:not(:first-child) {
   padding-left: 0;
 }
 .table-container {
-  background-color: white;
   padding: 15px;
   padding-top: 5px;
   border-radius: 5px;
@@ -50,10 +49,10 @@ mat-input-element:focus {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 .active {
-  color: rgb(210, 173, 72);
+  color: #00dbde;
 }
 .soft_deleted {
-  color: rgb(179, 19, 46);
+  color: #fc00ff;
 }
 ::ng-deep .mat-input-underline {
   display: none;
@@ -63,4 +62,12 @@ mat-input-element:focus {
 }
 ::ng-deep .mat-mdc-paginator-page-size-label {
   display: none;
+}
+
+button {
+  border: none;
+  background: transparent;
+}
+mat-icon {
+  color: rebeccapurple;
 }

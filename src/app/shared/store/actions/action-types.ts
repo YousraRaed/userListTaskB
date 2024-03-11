@@ -1,8 +1,8 @@
-// import * as AuthActions from './auth.actions';
+import * as AuthActions from './auth.actions';
 import * as UserActions from './users.actions';
 
-export { UserActions };
+export { UserActions, AuthActions };
 
-const actionTypes = { ...UserActions };
+const actionTypes = { ...UserActions, ...AuthActions };
 
 export const allActionTypes = Object.values(actionTypes);

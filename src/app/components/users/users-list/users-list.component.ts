@@ -1,4 +1,12 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  Inject,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -15,14 +23,13 @@ import {
   loadDeleteUser,
   loadGetUsers,
 } from '../../../shared/store/actions/users.actions';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import {
   I18NEXT_SERVICE,
-  I18NextPipe,
   ITranslationService,
   I18NextModule,
 } from 'angular-i18next';
-import { I18N_PROVIDERS } from '../../../shared/internationalization/i18next-configuration';
+import { isAuthAdmin } from '../../../shared/store/selectors/auth.selectors';
 
 @Component({
   selector: 'app-users-list',
@@ -40,12 +47,23 @@ import { I18N_PROVIDERS } from '../../../shared/internationalization/i18next-con
   templateUrl: './users-list.component.html',
   styleUrl: './users-list.component.scss',
 })
-export class UsersListComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'email', 'phone', 'status', 'actions'];
+export class UsersListComponent implements OnInit, OnChanges {
+  @Input() filterValue?: string;
+  displayedColumnsForUser: string[] = ['name', 'email', 'phone', 'status'];
+  displayedColumnsForAdmin: string[] = [
+    'name',
+    'email',
+    'phone',
+    'status',
+    'actions',
+  ];
+
   dataSource = new MatTableDataSource<any>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   @ViewChild(MatSort) sort: MatSort | undefined;
+
+  isRoleAdmin$: Observable<boolean> | undefined;
 
   userSubscription?: Subscription;
 
@@ -54,9 +72,13 @@ export class UsersListComponent implements OnInit {
     private dialog: MatDialog,
     @Inject(I18NEXT_SERVICE) private i18NextService: ITranslationService
   ) {}
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.filterValue) this.dataSource.filter = this.filterValue;
+  }
 
   ngOnInit(): void {
     this.loadUsers();
+    this.isRoleAdmin$ = this.store.select(isAuthAdmin);
   }
   ngAfterViewInit() {
     if (this.sort) this.dataSource.sort = this.sort;
@@ -72,14 +94,6 @@ export class UsersListComponent implements OnInit {
       });
   }
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-  openAddUserDialog(): void {
-    this.dialog.open(AddUserDialogComponent, {
-      panelClass: 'dialog',
-    });
-  }
   deleteUser(user: User) {
     this.store.dispatch(loadDeleteUser(user.id));
   }

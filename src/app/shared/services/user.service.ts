@@ -45,8 +45,6 @@ export class UserService implements UserClientService {
   }
 
   updateUser(user: User): Observable<User> {
-    console.log('zzz', user);
-
     return of(user);
   }
 }

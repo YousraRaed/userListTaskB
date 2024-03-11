@@ -12,5 +12,14 @@ export const enTranslation = {
     status: 'Status',
     actions: 'Actions',
     filter: 'Filter',
+    edit: 'Edit',
+    logout: 'Logout',
+  },
+  login: {
+    username: 'Username',
+    password: 'Password',
+    login: 'Login',
+    typeYourUsername: 'Type your username',
+    typeYourPassword: 'Type your password',
   },
 };

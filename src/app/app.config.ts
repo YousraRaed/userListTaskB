@@ -11,6 +11,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { REST_CLIENT_SERVICES } from '../app/shared/outbound/rest-client-services';
 import { UsersEffects } from '../app/shared/store/effects/users.effects';
+import { AuthEffects } from '../app/shared/store/effects/auth.effects';
+
 import { reducers } from '../app/shared/store/reducers/app.reducer';
 import { I18NextModule } from 'angular-i18next';
 import { I18N_PROVIDERS } from '../app/shared/internationalization/i18next-configuration';
@@ -21,7 +23,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     importProvidersFrom(
       HttpClientModule,
-      EffectsModule.forRoot([UsersEffects]),
+      EffectsModule.forRoot([UsersEffects, AuthEffects]),
       StoreModule.forRoot(reducers, {
         runtimeChecks: {
           strictStateImmutability: true,
@@ -30,11 +32,6 @@ export const appConfig: ApplicationConfig = {
         },
       }),
       I18NextModule.forRoot()
-
-      // StoreDevtoolsModule.instrument({
-      //   maxAge: 25,
-      //   logOnly: environment.production,
-      // }),
     ),
     ...REST_CLIENT_SERVICES,
     ...I18N_PROVIDERS,

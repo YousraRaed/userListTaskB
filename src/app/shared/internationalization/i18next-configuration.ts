@@ -25,33 +25,24 @@ const I18NEXT_RESOURCES = {
 
 export function appInit(i18next: ITranslationService) {
   return () =>
-    i18next
-      .use(i18nextLanguageDetector)
-      .init({
-        supportedLngs: ['en', 'ar'],
-        fallbackLng: 'en',
-        debug: true,
-        returnEmptyString: true,
-        ns: ['translation', 'error'],
-        resources: I18NEXT_RESOURCES,
-        cleanCode: true,
-        interpolation: {
-          format: I18NextModule.interpolationFormat(defaultInterpolationFormat),
-          escapeValue: false,
-        },
-        detection: {
-          order: ['querystring', 'localStorage'],
-          lookupLocalStorage: 'i18nextLanguage',
-          lookupQuerystring: 'lang',
-        },
-      })
-      .then(() => {
-        console.log('Detected language:', i18next.language);
-        console.log('Loaded resources:', i18next.services.resourceStore.data);
-      })
-      .catch((error) => {
-        console.error('Error occurred during initialization:', error);
-      });
+    i18next.use(i18nextLanguageDetector).init({
+      supportedLngs: ['en', 'ar'],
+      fallbackLng: 'en',
+      debug: true,
+      returnEmptyString: true,
+      ns: ['translation', 'error'],
+      resources: I18NEXT_RESOURCES,
+      cleanCode: true,
+      interpolation: {
+        format: I18NextModule.interpolationFormat(defaultInterpolationFormat),
+        escapeValue: false,
+      },
+      detection: {
+        order: ['querystring', 'localStorage'],
+        lookupLocalStorage: 'i18nextLanguage',
+        lookupQuerystring: 'lang',
+      },
+    });
 }
 
 export function localeIdFactory(i18next: ITranslationService) {
