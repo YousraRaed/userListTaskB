@@ -17,11 +17,9 @@ import {
 import { MatInputModule } from '@angular/material/input';
 import { User } from '../../../shared/models/user.model';
 import { MatSelectModule } from '@angular/material/select';
-import {
-  I18NEXT_SERVICE,
-  ITranslationService,
-  I18NextModule,
-} from 'angular-i18next';
+import { I18NextModule } from 'angular-i18next';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-add-user-dialog',
   standalone: true,
@@ -32,6 +30,7 @@ import {
     MatInputModule,
     MatSelectModule,
     I18NextModule,
+    CommonModule,
   ],
   templateUrl: './add-user-dialog.component.html',
   styleUrl: './add-user-dialog.component.scss',

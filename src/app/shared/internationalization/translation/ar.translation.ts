@@ -31,4 +31,7 @@ export const arTranslation = {
     sucessLogin: 'تسجيل الدخول الناجح',
     sucessDeleteUser: 'نجاح حذف المستخدم',
   },
+  validation: {
+    email: 'يرجى إدخال عنوان بريد إلكتروني صالح',
+  },
 };

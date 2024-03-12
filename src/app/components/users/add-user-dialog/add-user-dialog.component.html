@@ -27,6 +27,9 @@
           required
           email
         />
+        <mat-error *ngIf="email.hasError('email')">{{
+          "translation:validation.email" | i18nextEager
+        }}</mat-error>
       </mat-form-field>
     </div>
     <div>
@@ -57,7 +60,7 @@
     </div>
     <div class="btn">
       <div class="button-row">
-        <div class="color"></div>
+        <div class="color" [ngClass]="{ disable: !addUserForm.valid }"></div>
         <button mat-button type="submit" [disabled]="!addUserForm.valid">
           {{
             data?.user
