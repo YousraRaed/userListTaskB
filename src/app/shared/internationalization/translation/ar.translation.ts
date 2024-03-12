@@ -24,5 +24,11 @@ export const arTranslation = {
   },
   notification: {
     close: 'اغلاق',
+    sucessLogout: 'تسجيل الخروج الناجح',
+    sucessGetUsers: 'Success Get Users',
+    sucessUpdateUser: 'النجاح في الحصول على المستخدمين',
+    sucessAddUser: 'تمت إضافة مستخدم بنجاح',
+    sucessLogin: 'تسجيل الدخول الناجح',
+    sucessDeleteUser: 'نجاح حذف المستخدم',
   },
 };

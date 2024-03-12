@@ -1,5 +1,5 @@
 <div *ngIf="show" class="pop-up">
-  <span>{{ message }}</span>
+  <span>{{ message | i18nextEager }}</span>
   <div class="button-row">
     <div class="color"></div>
     <button (click)="close()">

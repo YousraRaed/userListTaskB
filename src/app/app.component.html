@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [dir]="isArabic ? 'rtl' : 'ltr'" i18n-dir #mainContainer>
   <app-header class="header"> </app-header>
   <app-notification
     [message]="popUpMessage"

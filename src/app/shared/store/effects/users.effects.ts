@@ -23,7 +23,9 @@ export class UsersEffects {
         return this.userService.getUsers();
       }),
       map((users) => {
-        this.notificationService.showPopUp('Success get users.');
+        this.notificationService.showPopUp(
+          'translation:notification.sucessGetUsers'
+        );
         return getUserLoaded(users);
       })
     )
@@ -36,7 +38,9 @@ export class UsersEffects {
         return this.userService.createUser(action.user);
       }),
       map((user) => {
-        this.notificationService.showPopUp('Success add user.');
+        this.notificationService.showPopUp(
+          'translation:notification.sucessAddUser'
+        );
 
         return createUserLoaded(user);
       })
@@ -50,7 +54,9 @@ export class UsersEffects {
         return this.userService.updateUser(action.user);
       }),
       map((user) => {
-        this.notificationService.showPopUp('Success update user.');
+        this.notificationService.showPopUp(
+          'translation:notification.sucessUpdateUser'
+        );
 
         return updateUserLoaded(user);
       })
@@ -64,7 +70,9 @@ export class UsersEffects {
         return this.userService.deleteUser(action.userId);
       }),
       map((userId) => {
-        this.notificationService.showPopUp('Success delete user.');
+        this.notificationService.showPopUp(
+          'translation:notification.sucessDeleteUser'
+        );
 
         return deleteUserLoaded(userId);
       })

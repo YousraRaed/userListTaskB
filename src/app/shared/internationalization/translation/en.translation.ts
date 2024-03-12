@@ -24,5 +24,11 @@ export const enTranslation = {
   },
   notification: {
     close: 'Close',
+    sucessLogout: 'Success Logout',
+    sucessGetUsers: 'Success Get Users',
+    sucessUpdateUser: 'Success Update User',
+    sucessAddUser: 'Success Add User',
+    sucessLogin: 'Success Login',
+    sucessDeleteUser: 'Success Delete User',
   },
 };

@@ -21,7 +21,9 @@ export class AuthEffects {
         return this.authService.signIn(username, password);
       }),
       map((user) => {
-        this.notificationService.showPopUp('Success login.');
+        this.notificationService.showPopUp(
+          'translation:notification.sucessLogin'
+        );
         return signedIn(user);
       })
     )
@@ -33,7 +35,9 @@ export class AuthEffects {
         return this.authService.signOut();
       }),
       map((isLogout) => {
-        this.notificationService.showPopUp('Success logout.');
+        this.notificationService.showPopUp(
+          'translation:notification.sucessLogout'
+        );
         return signedOut(isLogout);
       })
     )
