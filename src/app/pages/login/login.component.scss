@@ -6,7 +6,6 @@
   display: flex;
   justify-content: center;
   .login-wrapper {
-    width: 500px;
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -51,4 +50,7 @@
     display: flex;
     flex-wrap: wrap;
   }
+  // @media screen and (max-width: 959px) {
+  //   width: 300px;
+  // }
 }
