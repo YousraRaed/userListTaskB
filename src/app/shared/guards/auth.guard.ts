@@ -5,7 +5,6 @@ import {
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
-import { Store } from '@ngrx/store';
 
 export const AuthGuard: CanActivateFn = (
   route: ActivatedRouteSnapshot,

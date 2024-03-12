@@ -18,7 +18,9 @@ export class NotificationComponent implements OnChanges {
       this.show = true;
     }
   }
-
+  /**
+   * close notification pop up
+   */
   close() {
     this.show = false;
   }

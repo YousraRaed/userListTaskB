@@ -24,10 +24,12 @@ export class HeaderComponent {
   supportedLanguages = environment.supportedLanguages;
 
   constructor(
-    private router: Router,
     @Inject(I18NEXT_SERVICE) private i18NextService: ITranslationService
   ) {}
-
+  /**
+   * function to change language
+   * @param lang
+   */
   changeLanguage(lang: string) {
     if (lang !== this.i18NextService.language) {
       this.i18NextService.changeLanguage(lang);
