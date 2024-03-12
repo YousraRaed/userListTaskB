@@ -19,3 +19,11 @@ Code in Master branch
 1-In Task 1, regarding the status "soft_deleted," clarification is needed to understand whether this status is automatically assigned when a user is deleted or if it's an optional status set by the admin during user creation or modification.
 
 2-Due to time constraints, some features such as error handling, token management, and HTTP interceptors were not implemented.
+
+3- password validation
+
+- At least one uppercase letter
+- At least one lowercase letter
+- At least one number
+- At least one special character
+- A minimum of 8 characters in length
